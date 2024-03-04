@@ -126,7 +126,7 @@ class Address extends Model
      *
      * Gets the plugin's settings
      */
-    function init()
+    function init(): void
     {
         $this->_settings = VzAddress::getInstance()->getSettings();
     }
@@ -475,7 +475,7 @@ class Address extends Model
                 }
             }
 
-            $output .= '&style=' . implode($declaration, '|');
+            $output .= '&style=' . implode('|', $declaration);
         }
 
         return $output;

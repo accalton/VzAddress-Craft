@@ -60,7 +60,7 @@ class Address extends Field
     // Public Methods
     // =========================================================================
 
-    function init()
+    function init(): void
     {
         parent::init();
 
@@ -77,7 +77,7 @@ class Address extends Field
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         // $rules = array_merge($rules, []);
@@ -95,7 +95,7 @@ class Address extends Field
     /**
      * @inheritdoc
      */
-    public function serializeValue($value, ElementInterface $element = null)
+    public function serializeValue($value, ElementInterface $element = null): mixed
     {
         $coords = VzAddress::getInstance()->address->geocodeAddress($value);
         $value->latitude = $coords['latitude'];
@@ -114,7 +114,7 @@ class Address extends Field
      *
      * @return mixed The prepared field value
      */
-    public function normalizeValue($value, ElementInterface $element = null)
+    public function normalizeValue($value, ElementInterface $element = null): mixed
     {
         if (is_string($value) && !empty($value)) {
             $value = Json::decode($value);
@@ -134,7 +134,7 @@ class Address extends Field
      *
      * @return string|null
      */
-    public function getSettingsHtml()
+    public function getSettingsHtml(): ?string
     {
         $countries = VzAddress::getInstance()->address->countries;
 

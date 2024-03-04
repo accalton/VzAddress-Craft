@@ -70,7 +70,7 @@ class VzAddress extends Plugin
      * you do not need to load it in your init() method.
      *
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
         self::$plugin = $this;
@@ -116,7 +116,7 @@ class VzAddress extends Plugin
      *
      * @return Model|null
      */
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?craft\base\Model
     {
         return new Settings();
     }
